@@ -92,3 +92,7 @@ Time(time, "%y年%M月%d日%h时%m分%s秒"); // xxxx年xx月xx日xx时xx分xx�
 ```javascript
 Time.ago(1413772288388); // 一天前
 ```
+
+### 源码
+
+[源码](http://binnng.github.io/time.js/docs/time.html)
