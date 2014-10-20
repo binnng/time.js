@@ -89,4 +89,6 @@ Time(time, "%y年%M月%d日%h时%m分%s秒"); // xxxx年xx月xx日xx时xx分xx�
 * 3个月前
 * 10年前
 
+```javascript
 Time.ago(1413772288388); // 一天前
+```
