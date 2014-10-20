@@ -1,0 +1,35 @@
+{
+  "name": "binnng/debug.js",
+  "main": "debug.js",
+  "homepage": "https://github.com/binnng/debug.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "print your debug code in mobile",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "debug",
+    "console"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "28bc4d9f6f",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "28bc4d9f6f099443724633b86cac02e5b53dcc07"
+  },
+  "_source": "git://github.com/binnng/debug.js.git",
+  "_target": "*",
+  "_originalSource": "binnng/debug.js",
+  "_direct": true
+}

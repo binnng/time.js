@@ -1,0 +1,37 @@
+{
+  "name": "binnng/time.js",
+  "main": "./build/time.min.js",
+  "homepage": "https://github.com/binnng/time.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "非常丰富的去格式化时间戳",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "time",
+    "moment",
+    "date",
+    "datetime"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "a3b89abfde",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "a3b89abfde8b5c503bd4535bfe01e3c461d9aeef"
+  },
+  "_source": "git://github.com/binnng/time.js.git",
+  "_target": "*",
+  "_originalSource": "binnng/time.js",
+  "_direct": true
+}

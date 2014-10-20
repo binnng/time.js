@@ -1,0 +1,28 @@
+{
+  "name": "binnng/time.js",
+  "main": "./build/time.min.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/binnng/time.js",
+  "authors": [
+    "binnng <imbinnng@gmail.com>"
+  ],
+  "description": "非常丰富的去格式化时间戳",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "keywords": [
+    "time",
+    "moment",
+    "date",
+    "datetime"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
