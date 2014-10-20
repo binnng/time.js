@@ -13,5 +13,8 @@
   "development": {},
   "license": "MIT",
   "main": "time.js",
-  "scripts": []
+  "scripts": [
+    "time.js",
+    "build/time.min.js"
+  ]
 }
