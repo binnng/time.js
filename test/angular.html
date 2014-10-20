@@ -1,0 +1,21 @@
+<html ng-app="myApp"> 
+<body ng-controller='timeCtrl'> 
+{{datetime | datetime}}
+<script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+<script type="text/javascript" src="bower_components/binnng/debug.js/build/debug.min.js"></script>
+<script type="text/javascript" src="../build/time.min.js"></script>
+<script> 
+	var myApp = angular.module("myApp", [
+		"binnng/debug",
+		"binnng/time"
+	]); 
+
+	myApp.controller("timeCtrl", function($scope, $debug, $time) {  
+		var time = + new Date;
+		$debug.log($time(time)); // 2014-10-20 14:32:56
+
+		$scope.datetime = time;
+	});  
+</script> 
+</body> 
+</html> 

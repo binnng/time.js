@@ -1,0 +1,17 @@
+{
+  "name": "time.js",
+  "repo": "binnng/time.js",
+  "description": "More better to format your timestamp.",
+  "version": "0.0.1",
+  "keywords": [
+    "time",
+    "moment",
+    "date",
+    "datetime"
+  ],
+  "dependencies": {},
+  "development": {},
+  "license": "MIT",
+  "main": "time.js",
+  "scripts": []
+}
