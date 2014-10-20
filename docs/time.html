@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>time.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>time.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">(<span class="hljs-params">(WIN)</span> -&gt;</span>
+
+  YEAR = <span class="hljs-string">"year"</span>
+  MONTH = <span class="hljs-string">"month"</span>
+  DAY = <span class="hljs-string">"day"</span>
+  HOUR = <span class="hljs-string">"hour"</span>
+  MINUTE = <span class="hljs-string">"minute"</span>
+  SECOND = <span class="hljs-string">"second"</span>
+
+  DEFAULT_FORMAT = <span class="hljs-string">"%y-%M-%d %h:%m:%s"</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>格式字符串含义字典</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  map = 
+    <span class="hljs-string">"%y"</span>: YEAR
+    <span class="hljs-string">"%M"</span>: MONTH
+    <span class="hljs-string">"%d"</span>: DAY
+    <span class="hljs-string">"%h"</span>: HOUR
+    <span class="hljs-string">"%m"</span>: MINUTE
+    <span class="hljs-string">"%s"</span>: SECOND</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p><code>unify</code>
+统一时间戳的位数，并强制转换为<code>Number</code>类型
+php可能传过来10位</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">unify</span> = <span class="hljs-params">(time)</span> -&gt;</span>
+    time -= <span class="hljs-number">0</span>
+    time *= <span class="hljs-number">1000</span> <span class="hljs-keyword">if</span> <span class="hljs-string">"<span class="hljs-subst">#{time}</span>"</span>.length <span class="hljs-keyword">is</span> <span class="hljs-number">10</span>
+    time</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p><code>two</code>
+一位转换为两位</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">two</span> = <span class="hljs-params">(str)</span> -&gt;</span>
+    s = <span class="hljs-string">"<span class="hljs-subst">#{str}</span>"</span>
+    s = <span class="hljs-string">"0<span class="hljs-subst">#{s}</span>"</span> <span class="hljs-keyword">if</span> s.length <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>
+    s</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p><code>replace</code>
+字符串多项替换
+把str里的src替换为dst</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">replace</span> = <span class="hljs-params">(str, src, dst)</span> -&gt;</span>
+    reg = <span class="hljs-keyword">new</span> RegExp src, <span class="hljs-string">"g"</span>
+    str.replace reg, dst</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p><code>getFullTime</code>
+传入时间戳，返回时间Object</p>
+<pre><code><span class="hljs-reserved">var</span> time = getTime(<span class="hljs-number">1413772288388</span>); 
+<span class="hljs-regexp">//</span><span class="hljs-function"> =&gt;</span> {<span class="hljs-attribute">year</span>: <span class="hljs-number">2014</span>,<span class="hljs-attribute">month</span>: <span class="hljs-number">10</span>,<span class="hljs-attribute">day</span>: <span class="hljs-number">20</span>,<span class="hljs-attribute">hour</span>: <span class="hljs-number">10</span>,<span class="hljs-attribute">minute</span>: <span class="hljs-number">31</span>,<span class="hljs-attribute">second</span>: <span class="hljs-number">28</span>}
+</code></pre>
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function">  <span class="hljs-title">getFullTime</span> = <span class="hljs-params">(time)</span> -&gt;</span>
+    date = <span class="hljs-keyword">new</span> Date(unify time)
+
+    <span class="hljs-attribute">year</span>: date.getFullYear()
+    <span class="hljs-attribute">month</span>: two (date.getMonth() + <span class="hljs-number">1</span>)
+    <span class="hljs-attribute">day</span>: two date.getDate()
+    <span class="hljs-attribute">hour</span>: two date.getHours()
+    <span class="hljs-attribute">minute</span>: two date.getMinutes()
+    <span class="hljs-attribute">second</span>: two date.getSeconds()
+
+
+  time =</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p><code>time.default</code>
+默认方法，定制生成时间格式</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">default</span>: <span class="hljs-function"><span class="hljs-params">(time, format)</span> -&gt;</span>
+      <span class="hljs-keyword">if</span> format <span class="hljs-keyword">and</span> (<span class="hljs-keyword">typeof</span> format) <span class="hljs-keyword">isnt</span> <span class="hljs-string">"string"</span>
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Error <span class="hljs-string">"format must be a string."</span>
+
+      fullTime = getFullTime time
+      ret = format <span class="hljs-keyword">or</span> DEFAULT_FORMAT
+
+      <span class="hljs-keyword">for</span> src <span class="hljs-keyword">of</span> map
+        ret = replace(ret, src, fullTime[map[src]])
+
+      ret</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p><code>time.human</code>
+更加<strong>人性化</strong>的展示时间
+刚刚，一天前，一周前…</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="hljs-attribute">human</span>: <span class="hljs-function"><span class="hljs-params">(time)</span> -&gt;</span>
+      time = unify time
+      int = parseInt
+
+      curTime = +<span class="hljs-keyword">new</span> Date()
+      diff = curTime - time
+      ago = <span class="hljs-string">""</span>
+
+      <span class="hljs-keyword">if</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> &gt; diff
+        ago = <span class="hljs-string">"刚刚"</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> &lt;= diff <span class="hljs-keyword">and</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> &gt; diff
+        ago = int(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span>)) + <span class="hljs-string">"分钟前"</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> &lt;= diff <span class="hljs-keyword">and</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> &gt; diff
+        ago = int(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span>)) + <span class="hljs-string">"小时前"</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> &lt;= diff <span class="hljs-keyword">and</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span> &gt; diff
+        ago = int(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span>)) + <span class="hljs-string">"天前"</span>
+      <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span> &lt;= diff <span class="hljs-keyword">and</span> <span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span> * <span class="hljs-number">12</span> &gt; diff
+        ago = int(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span>)) + <span class="hljs-string">"月前"</span>
+      <span class="hljs-keyword">else</span>
+        ago = int(diff / (<span class="hljs-number">1000</span> * <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span> * <span class="hljs-number">12</span>)) + <span class="hljs-string">"年前"</span>
+      
+      ago</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>暴露出去</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  entry = time.<span class="hljs-reserved">default</span>
+  entry.human = entry.ago = time.human
+
+  <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> <span class="hljs-keyword">isnt</span> <span class="hljs-string">"undefined"</span> <span class="hljs-keyword">and</span> <span class="hljs-built_in">module</span>.exports
+    <span class="hljs-built_in">module</span>.exports = exports = entry
+
+  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> WIN[<span class="hljs-string">"define"</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">"function"</span>
+    define <span class="hljs-function"><span class="hljs-params">(<span class="hljs-built_in">require</span>, exports, <span class="hljs-built_in">module</span>)</span> -&gt;</span>
+      <span class="hljs-built_in">module</span>.exports = exports = entry</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>为angular定制的service</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> <span class="hljs-keyword">typeof</span> WIN[<span class="hljs-string">"angular"</span>] <span class="hljs-keyword">is</span> <span class="hljs-string">"object"</span>
+    angularApp = angular.<span class="hljs-built_in">module</span>(<span class="hljs-string">"binnng/time"</span>, [])
+
+    angularApp.factory <span class="hljs-string">"$time"</span>,<span class="hljs-function"> -&gt;</span> entry
+    angularApp.filter <span class="hljs-string">"ago"</span>,<span class="hljs-function"> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(time)</span> -&gt;</span> entry.ago time
+    angularApp.filter <span class="hljs-string">"date"</span>,<span class="hljs-function"> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(time)</span> -&gt;</span> entry time, <span class="hljs-string">"%y年%M月%d日"</span>
+    angularApp.filter <span class="hljs-string">"datetime"</span>,<span class="hljs-function"> -&gt;</span> <span class="hljs-function"><span class="hljs-params">(time)</span> -&gt;</span> entry time, DEFAULT_FORMAT</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>啥都不是，直接暴露到window</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>  <span class="hljs-keyword">else</span>
+    WIN[<span class="hljs-string">"Time"</span>] = entry
+
+
+) <span class="hljs-built_in">window</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>
