@@ -1,0 +1,162 @@
+<!doctype html>
+<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
+<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on http://github.com/jonrohan -->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script type="text/javascript" src="javascripts/script.js"></script>
+
+  <title>Time.js</title>
+  <meta name="description" content="格式化时间戳模块">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <header>
+      <h1 class="title">Time.js</h1>
+    </header>
+    <div id="container">
+      <p class="tagline">格式化时间戳模块</p>
+      <div id="main" role="main">
+        <div class="download-bar">
+        <div class="inner">
+          <a href="https://github.com/binnng/time.js/tarball/master" class="download-button tar"><span>Download</span></a>
+          <a href="https://github.com/binnng/time.js/zipball/master" class="download-button zip"><span>Download</span></a>
+          <a href="https://github.com/binnng/time.js" class="code">View Time.js on GitHub</a>
+        </div>
+        <span class="blc"></span><span class="trc"></span>
+        </div>
+        <article class="markdown-body">
+          <h1>
+<a name="timejs" class="anchor" href="#timejs"><span class="octicon octicon-link"></span></a>time.js</h1>
+
+<p>格式化时间戳模块</p>
+
+<h3>
+<a name="%E5%AE%89%E8%A3%85" class="anchor" href="#%E5%AE%89%E8%A3%85"><span class="octicon octicon-link"></span></a>安装</h3>
+
+<h4>
+<a name="1-bower" class="anchor" href="#1-bower"><span class="octicon octicon-link"></span></a>1. bower</h4>
+
+<pre><code>bower install binnng/time.js
+</code></pre>
+
+<h4>
+<a name="2-component" class="anchor" href="#2-component"><span class="octicon octicon-link"></span></a>2. component</h4>
+
+<pre><code>component install binnng/time.js
+</code></pre>
+
+<h3>
+<a name="%E4%BD%BF%E7%94%A8" class="anchor" href="#%E4%BD%BF%E7%94%A8"><span class="octicon octicon-link"></span></a>使用</h3>
+
+<h4>
+<a name="1-%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8" class="anchor" href="#1-%E7%9B%B4%E6%8E%A5%E5%BC%95%E7%94%A8"><span class="octicon octicon-link"></span></a>1. 直接引用</h4>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"time.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+    <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="o">+</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">;</span>
+
+    <span class="nx">Time</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="s2">"%y年%M月%d日%h时%m分%s秒"</span><span class="p">);</span> <span class="c1">// xxxx年xx月xx日xx时xx分xx秒</span>
+    <span class="nx">Time</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="s2">"%y-%M-%d %h:%m:%s"</span><span class="p">);</span> <span class="c1">//xxxx-xx-xx xx:xx:xx</span>
+
+    <span class="nx">Time</span><span class="p">.</span><span class="nx">ago</span><span class="p">(</span><span class="nx">time</span><span class="p">);</span> <span class="c1">// 刚刚</span>
+
+<span class="nt">&lt;/script&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+<p><a href="http://binnng.github.io/time.js/demo/index.html">demo</a></p>
+
+<h4>
+<a name="2-angular" class="anchor" href="#2-angular"><span class="octicon octicon-link"></span></a>2. Angular</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="kd">var</span> <span class="nx">myApp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s2">"myApp"</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s2">"binnng/time"</span>
+<span class="p">]);</span> 
+</pre></div>
+
+<h5>
+<a name="factory" class="anchor" href="#factory"><span class="octicon octicon-link"></span></a>factory</h5>
+
+<div class="highlight highlight-javascript"><pre>
+<span class="nx">myApp</span><span class="p">.</span><span class="nx">controller</span><span class="p">(</span><span class="s2">"timeCtrl"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$scope</span><span class="p">,</span> <span class="nx">$time</span><span class="p">)</span> <span class="p">{</span>  
+    <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="o">+</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">;</span>
+
+    <span class="nx">$time</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="s2">"%y年%M月%d日%h时%m分%s秒"</span><span class="p">);</span> <span class="c1">// xxxx年xx月xx日xx时xx分xx秒</span>
+    <span class="nx">$time</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="s2">"%y-%M-%d %h:%m:%s"</span><span class="p">);</span> <span class="c1">//xxxx-xx-xx xx:xx:xx</span>
+<span class="p">});</span>
+</pre></div>
+
+<h5>
+<a name="filter" class="anchor" href="#filter"><span class="octicon octicon-link"></span></a>filter</h5>
+
+<p><code>time.js</code>为angular提供了filter，你可以这样使用</p>
+
+<div class="highlight highlight-html"><pre>
+<span class="nt">&lt;p&gt;</span>{{timeText | date}}<span class="nt">&lt;/p&gt;</span> <span class="c">&lt;!-- // xxxx年xx月xx日 --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{timeText | datetime}}<span class="nt">&lt;/p&gt;</span> <span class="c">&lt;!-- // xxxx年xx月xx日xx时xx分xx秒 --&gt;</span>
+<span class="nt">&lt;p&gt;</span>{{timeText | ago}}<span class="nt">&lt;/p&gt;</span> <span class="c">&lt;!-- x个月前 --&gt;</span>
+
+</pre></div>
+
+<p><a href="http://binnng.github.io/time.js/demo/angluar.html">demo</a></p>
+
+<h3>
+<a name="api" class="anchor" href="#api"><span class="octicon octicon-link"></span></a>API</h3>
+
+<h4>
+<a name="time" class="anchor" href="#time"><span class="octicon octicon-link"></span></a>Time()</h4>
+
+<p>根据你自定义的格式返回时间字符串</p>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">Time</span><span class="p">(</span><span class="nx">time</span><span class="p">,</span> <span class="s2">"%y年%M月%d日%h时%m分%s秒"</span><span class="p">);</span> <span class="c1">// xxxx年xx月xx日xx时xx分xx秒</span>
+</pre></div>
+
+<h4>
+<a name="timeago" class="anchor" href="#timeago"><span class="octicon octicon-link"></span></a>Time.ago()</h4>
+
+<p>传入的时间戳距离现在有多久</p>
+
+<ul>
+<li>刚刚</li>
+<li>1天前</li>
+<li>3个月前</li>
+<li>10年前</li>
+</ul>
+
+<div class="highlight highlight-javascript"><pre><span class="nx">Time</span><span class="p">.</span><span class="nx">ago</span><span class="p">(</span><span class="mi">1413772288388</span><span class="p">);</span> <span class="c1">// 一天前</span>
+</pre></div>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="owner">
+      <p><a href="https://github.com/binnng" class="avatar"><img src="https://avatars2.githubusercontent.com/u/2696107?v=2&amp;s=60" width="48" height="48"></a> <a href="https://github.com/binnng">binnng</a> maintains <a href="https://github.com/binnng/time.js">Time.js</a></p>
+
+
+      </div>
+      <div class="creds">
+        <small>This page generated using <a href="http://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
+      </div>
+    </footer>
+  </div>
+  <div class="current-section">
+    <a href="#top">Scroll to top</a>
+    <a href="https://github.com/binnng/time.js/tarball/master" class="tar">tar</a><a href="https://github.com/binnng/time.js/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
+    <p class="name"></p>
+  </div>
+
+  
+</body>
+</html>
