@@ -8,13 +8,18 @@ time.js
 #### 1. bower
 
 ```
-bower install binnng/time.js
+bower install binnng/time.js --save
 ```
 
 #### 2. component
 
 ```
-component install binnng/time.js
+component install binnng/time.js --save
+```
+#### 3. npm
+
+```
+npm install time.js --save
 ```
 
 ### 使用
