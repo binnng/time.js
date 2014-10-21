@@ -1,0 +1,23 @@
+{
+  "name": "time.js",
+  "version": "0.0.1",
+  "description": "简单方便的格式化时间戳。",
+  "main": "time.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/binnng/time.js.git"
+  },
+  "keywords": [
+    "time.js",
+    "moment.js"
+  ],
+  "author": "imbinnng@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/binnng/time.js/issues"
+  }
+}
