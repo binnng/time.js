@@ -16,7 +16,6 @@ bower install binnng/time.js --save
 ```
 component install binnng/time.js --save
 ```
-
 #### 3. npm
 
 ```

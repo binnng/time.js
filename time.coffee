@@ -109,7 +109,7 @@
 
   else if typeof WIN["define"] is "function"
     define (require, exports, module) ->
-      module.exports = exports = entry
+      module.exports = exports = -> entry
 
   # 为angular定制的service
   else if typeof WIN["angular"] is "object"
