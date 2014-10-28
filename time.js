@@ -90,7 +90,9 @@
     return module.exports = exports = entry;
   } else if (typeof WIN["define"] === "function") {
     return define(function(require, exports, module) {
-      return module.exports = exports = entry;
+      return module.exports = exports = function() {
+        return entry;
+      };
     });
   } else if (typeof WIN["angular"] === "object") {
     angularApp = angular.module("binnng/time", []);
