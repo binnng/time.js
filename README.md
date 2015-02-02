@@ -73,7 +73,7 @@ myApp.controller("timeCtrl", function($scope, $time) {
 
 ````
 
-[demo](http://binnng.github.io/time.js/demo/angluar.html)
+[demo](http://binnng.github.io/time.js/demo/angular.html)
 
 ### API
 
